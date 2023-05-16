@@ -1,0 +1,10 @@
+.todo-item {
+    border-bottom: 1px solid #dadada;
+    padding: 12px 0px;
+}
+
+input[type='checkbox'] {
+    height: 16px;
+    width: 16px;
+    margin: 0px 11px;
+}
