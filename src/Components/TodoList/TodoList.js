@@ -71,12 +71,6 @@ function TodoList() {
         setDisplayNewTaskEditBox(true);
     }
 
-    const options = {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-    };
-
     return (
         <div className={"inner-container"}>
             <h2>Tasks</h2>
