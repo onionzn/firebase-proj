@@ -1,4 +1,5 @@
-import '../../App.css';
+import "../../App.css";
+import "./SignInOrUp.css";
 import { auth, googleProvider } from "../../config/firebase";
 import { signInWithEmailAndPassword, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
@@ -60,20 +61,20 @@ function SignInOrUp() {
             <div className={"inner-container"}>
                 <h2>Sign Up</h2>
                 {error && <div>{error}</div>}
-                <div>
+                <div className={"sign-in-input-container"}>
                     <label htmlFor="email">Email:</label>
                     <input type="email" id="email" onChange={handleEmailChange}/>
                 </div>
-                <div>
+                <div className={"sign-in-input-container"}>
                     <label htmlFor="password">Password:</label>
                     <input type="password" id="password" onChange={handlePasswordChange}/>
                 </div>
-                <div>
+                <div className={"sign-in-input-container"}>
                     <label htmlFor="confirmPassword">Confirm Password:</label>
                     <input type="password" id="confirmPassword" onChange={handleConfirmPasswordChange}/>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <div className={"sign-in-buttons-container"}>
                     <button onClick={handleSignUp}> Sign Up </button>
                     <button onClick={handleSwitching}> Returning User Sign In </button>
                 </div>
@@ -81,21 +82,21 @@ function SignInOrUp() {
         );
     }
 
-
     return (
         <div className={"inner-container"}>
+            <p>Please sign in to view or update your todo list.</p>
             <h2>Sign In</h2>
-            <div>
+            <div className={"sign-in-input-container"}>
                 <label htmlFor="email">Email:</label>
                 <input type="email" id="email" onChange={handleEmailChange}/>
             </div>
 
-            <div>
+            <div className={"sign-in-input-container"}>
                 <label htmlFor="password">Password:</label>
                 <input type="password" id="password" onChange={handlePasswordChange}/>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div className={"sign-in-buttons-container"}>
                 <button onClick={handleSignIn}>Sign In</button>
                 <button onClick={handleSignInWithGoogle}> Sign In With Google</button>
                 <button onClick={handleSwitching}> New User Sign Up</button>

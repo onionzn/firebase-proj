@@ -1,0 +1,11 @@
+.update-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px 0px;
+}
+
+.update-input-container input {
+    width: 80%;
+}

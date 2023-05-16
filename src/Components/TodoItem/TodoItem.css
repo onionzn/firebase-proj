@@ -1,10 +1,29 @@
-.todo-item {
+.todo-item-container {
     border-bottom: 1px solid #dadada;
-    padding: 12px 0px;
+    padding: 10px 0px;
+    text-align: left;
+}
+
+.todo-item-container p {
+    margin: 4px;
+}
+
+.first-row-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 input[type='checkbox'] {
     height: 16px;
     width: 16px;
-    margin: 0px 11px;
+    margin-right: 10px;
+}
+
+.inline-button-container {
+    margin-left: auto;
+}
+
+.inline-button-container button {
+    margin-left: 4px;
 }

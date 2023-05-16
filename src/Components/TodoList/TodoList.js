@@ -1,10 +1,12 @@
 import './TodoList.css';
+import '../../App.css';
+
 import TodoItem from '../TodoItem/TodoItem';
 import NewTaskEditBox from '../NewTaskEditBox/NewTaskEditBox';
 import { useState, useEffect } from 'react';
 import { db, auth } from "../../config/firebase";
 import { getDocs, collection, addDoc, deleteDoc, doc, updateDoc, query, where } from "firebase/firestore";
-
+import { Timestamp } from 'firebase/firestore';
 
 function TodoList() {
     // Whether to display the component for creating a new task at the bottom of the list
@@ -42,20 +44,21 @@ function TodoList() {
         }
     }
 
-    const updateItem = async (id, newTitle) => {
+    const updateItem = async (id, newTitle, dueDate) => {
         try {
             const itemDoc = doc(db, "todo-items", id);
-            await updateDoc(itemDoc, {title: newTitle});
+            await updateDoc(itemDoc, {title: newTitle, dueDate: dueDate});
             getItemList();
         } catch (err) {
             console.error(err);
         }
     }
 
-    const createItem = async (title) => {
+    const createItem = async (title, dueDate) => {
         try {
             await addDoc(itemsCollectionRef, {
               title: title,
+              dueDate: dueDate,
               userId: auth?.currentUser?.uid
             });
             getItemList();
@@ -68,9 +71,16 @@ function TodoList() {
         setDisplayNewTaskEditBox(true);
     }
 
+    const options = {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+    };
+
     return (
-        <div>
-            <div>
+        <div className={"inner-container"}>
+            <h2>Tasks</h2>
+            <div className={"task-list"}>
                 {itemList.map((item) => (
                     <TodoItem 
                         title={item.title} 
@@ -79,6 +89,7 @@ function TodoList() {
                         handleDelete={deleteItem}
                         handleUpdate={updateItem}
                         key={item.id}
+                        dueDate={item.dueDate}
                     />
                 ))}
             </div>

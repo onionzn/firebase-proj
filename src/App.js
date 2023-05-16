@@ -1,13 +1,10 @@
 import './App.css';
-import { useState, createContext, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { auth } from "./config/firebase";
 import { onAuthStateChanged } from 'firebase/auth';
 import TopNav from './Components/TopNav/TopNav';
-//import LeftNav from './Components/LeftNav/LeftNav';
-import RightNav from './Components/RightNav/RightNav'; 
+import TodoList from './Components/TodoList/TodoList';
 import SignInOrUp from './Components/SignInOrUp/SignInOrUp';
-
-export const TodoistContext = createContext();
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -34,7 +31,7 @@ function App() {
     <div className={"App"}>
       <div className={"main-container"}>
         <TopNav loggedIn={loggedIn}/>
-        {loggedIn? <RightNav />: <SignInOrUp />}
+        {loggedIn? <TodoList />: <SignInOrUp />}
       </div>
     </div>
   );

@@ -1,0 +1,19 @@
+.sign-in-input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.sign-in-input-container input {
+    width: 65%;
+}
+
+.sign-in-buttons-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-in-buttons-container button {
+    margin-top: 10px;
+}

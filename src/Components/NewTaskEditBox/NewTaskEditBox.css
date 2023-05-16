@@ -1,0 +1,23 @@
+.new-task-input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.new-task-input-container label {
+    margin-right: 8px;
+ }
+
+.new-task-input-container input {
+    flex: 1;
+}
+
+.new-task-button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.new-task-button-container button {
+    margin-left: 4px;
+}
